@@ -25,7 +25,7 @@ body {
   font-family: $font-stack;
 }
 
-.types-of-ai {
+.types-of-ai, .ai-tasks {
   background-color: #ffffff;
   padding: 20px;
   margin: 20px auto;
@@ -42,7 +42,7 @@ body {
   }
 }
 
-.ai-categories {
+.ai-categories, .task-list {
   max-width: 1300px;
   width: 100%;
   margin: auto;
@@ -53,7 +53,7 @@ body {
   align-items: center;
 }
 
-.ai-category {
+.ai-category,  .task-item{
   background-color: #f9f6f6;
   border: 1px solid #dddddd;
   border-radius: 8px;
@@ -71,7 +71,7 @@ body {
   justify-content: space-between;
 }
 
-.ai-description {
+.ai-description, .ai-tasks {
   font-size: medium;
   margin-top: auto;
   text-align: center;
@@ -91,7 +91,28 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+.nav-search {
+  position: relative;
+  width: 100%;
+  max-width: 200px;
+  margin: 5px 20px;
+  height: auto;
 
+  input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    font-size: medium;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+    transition: border-color 0.3s ease;
+
+    &:focus {
+      border-color: $primary-color;
+      outline: none;
+    }
+  }
+}
 
 nav {
   background-color: $primary-color;
