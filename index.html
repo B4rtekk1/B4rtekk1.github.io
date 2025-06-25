@@ -1,51 +1,61 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dropdown Menu</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/styles/atom-one-dark.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/styles/atom-one-dark.min.css"
+        rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
-</head>
-<body>
-    <nav>
-        <div class="nav-mobile">
-            <a id="nav-toggle" href="#!"><span></span></a>
-        </div>
-        <ul class="nav-list">
-            <li class="nav-logo">
-                <a href="#!"><img src="logo.png" alt="Logo"></a>
-            </li>
-            <li><a href="#!">Home</a></li>
-            <li><a href="#!">About</a></li>
-            <li>
-                <a href="#!">Supervised learning</a>
-                <ul class="nav-dropdown">
-                    <li><a href="#!">Linear Regression</a></li>
-                    <li><a href="#!">Logistic Regression</a></li>
-                    <li><a href="#!">Decision Trees</a></li>
-                    <li><a href="#!">Random Forests</a></li>
-                    <li><a href="#!">Support Vector Machines</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="#!">Unsupervised learning</a>
-                <ul class="nav-dropdown">
-                    <li><a href="#!">K-Means Clustering</a></li>
-                    <li><a href="#!">Hierarchical Clustering</a></li>
-                    <li><a href="#!">Principal Component Analysis (PCA)</a></li>
-                    <li><a href="#!">t-Distributed Stochastic Neighbor Embedding (t-SNE)</a></li>
-                </ul>
-            </li>
-            <li><a href="#!">Reinforcement learning</a></li>
-        </ul>
-    </nav>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
-    <div id="content"></div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.0.2/marked.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/highlight.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/languages/python.min.js"></script>
-    <script src="script.js"></script>
+</head>
+
+<body>
+    <div id="nav-placeholder"></div>
+    <div class="bg-container">
+        <img src="assets/images/ai_background.jpg" alt="AI Background" class="bg-image">
+    </div>
+    <div class="Introduction_ai">
+        <h1>Artificial intelligence consists of algorithms that enable a computer to behave like a human.</h1>
+        <div class="types-of-ai">
+            <h2>Different types of machine learning</h2>
+            <div class="ai-categories">
+                <div class="ai-category">
+                    <h2>Supervised Learning</h2>
+                    <div class="ai-description">
+                        <p>Algorithms learn from labeled data to make predictions.</p>
+                    </div>
+                </div>
+                <div class="ai-category">
+                    <h2>Unsupervised Learning</h2>
+                    <div class="ai-description">
+                    <p>Algorithms find patterns in unlabeled data.</p>
+                    </div>  
+                </div>
+                                <div class="ai-category">
+                    <h2>Semi-supervised learning</h2>
+                    <div class="ai-description">
+                        <p>Algorithms learn from a small amount of labeled data and a large amount of unlabeled data.</p>
+                    </div>  
+                </div>
+                <div class="ai-category">
+                    <h2>Reinforcement Learning</h2>
+                    <div class="ai-description">
+                    <p>Algorithms learn by interacting with an environment to maximize rewards.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="content"></div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.0.2/marked.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/languages/python.min.js"></script>
+        <script src="script.js"></script>
+        <script src="navbar.js"></script>
 </body>
+
 </html>
