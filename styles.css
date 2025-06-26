@@ -18,11 +18,13 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
-.ai-general {
-  background-color: transparent;
-  text-align: center;
+.ai-general-filler {
+  background-color: #1c1a1a;
+  text-align: left;
   width: 50%;
   aspect-ratio: 3/3;
+  font-size: large;
+  color: white;
 }
 
 .types-of-ai,

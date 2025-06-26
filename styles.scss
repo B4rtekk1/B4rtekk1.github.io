@@ -5,6 +5,7 @@ $dropdown-bg: #34495e;
 $font-stack: 'Roboto', sans-serif;
 $mobile-breakpoint: 768px;
 $box-color: #4c79a5;
+$margin: 20px 20px;
 
 * {
   margin: 0;
@@ -26,12 +27,17 @@ body {
   font-family: $font-stack;
 }
 
-.ai-general {
-  background-color: transparent;
-  text-align: center;
+.ai-general-filler {
+  background-color: #1c1a1a;
+  text-align: left;
   width: 50%;
   aspect-ratio: 3/3;
+  font-size: large;
+  color: white;
 }
+
+
+
 
 .types-of-ai,
 .ai-tasks {
