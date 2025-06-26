@@ -9,29 +9,24 @@ $(document).ready(function() {
 document.addEventListener("DOMContentLoaded", () => {
     const contentDiv = document.getElementById("content");
 
-    fetch("mnist_imports.md")
+    fetch("assets/code/linear.py")
         .then((response) => {
             if (!response.ok) {
-                throw new Error("Failed to load mnist.md");
+                throw new Error("Nie udało się wczytać pliku linear.py");
             }
             return response.text();
         })
-        .then((markdown) => {
-            const htmlContent = marked.parse(markdown, {
-                highlight: (code, lang) => {
-                    const validLanguage = hljs.getLanguage(lang) ? lang : 'plaintext';
-                    return hljs.highlight(code, { language: validLanguage }).value;
-                },
-            });
-
-            contentDiv.innerHTML = htmlContent;
-
-            document.querySelectorAll("pre code").forEach((block) => {
-                hljs.highlightElement(block);
-            });
+        .then((pythonCode) => {
+            const pre = document.createElement("pre");
+            const code = document.createElement("code");
+            code.className = "language-python";
+            code.textContent = pythonCode;
+            pre.appendChild(code);
+            contentDiv.appendChild(pre);
+            hljs.highlightElement(code);
         })
         .catch((error) => {
-            contentDiv.textContent = "Nie udało się załadować pliku mnist.md.";
+            contentDiv.textContent = "Nie udało się załadować pliku linear.py: " + error.message;
             console.error(error);
         });
 });
