@@ -30,13 +30,37 @@ body {
 .ai-general-filler {
   background-color: #1c1a1a;
   text-align: left;
-  width: 50%;
-  aspect-ratio: 3/3;
-  font-size: large;
-  color: white;
+  display: flex;
+  flex-direction: row;
 }
 
+.ai-general {
+  width: 50%;
+  height: auto;
+  padding: 20px;
+  color: $text-color;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
+  p {
+    font-size: xx-large;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    margin-left: 60px;
+    color: $text-color;
+  }
+}
+
+.ai-general-image {
+  width: 50%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
 
 
 .types-of-ai,
@@ -51,8 +75,8 @@ body {
 
   h2 {
     font-size: 24px;
-    color: $primary-color;
     margin-bottom: 20px;
+    color: $box-color;
   }
 }
 

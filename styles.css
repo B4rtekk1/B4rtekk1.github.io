@@ -21,10 +21,34 @@ body {
 .ai-general-filler {
   background-color: #1c1a1a;
   text-align: left;
+  display: flex;
+  flex-direction: row;
+}
+
+.ai-general {
   width: 50%;
-  aspect-ratio: 3/3;
-  font-size: large;
-  color: white;
+  height: auto;
+  padding: 20px;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.ai-general p {
+  font-size: xx-large;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  margin-left: 60px;
+  color: #ffffff;
+}
+
+.ai-general-image {
+  width: 50%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .types-of-ai,
@@ -40,8 +64,8 @@ body {
 .types-of-ai h2,
 .ai-tasks h2 {
   font-size: 24px;
-  color: #2c3e50;
   margin-bottom: 20px;
+  color: #4c79a5;
 }
 
 .ai-categories,
