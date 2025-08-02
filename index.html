@@ -1,112 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/styles/monokai-sublime.min.css"
-        rel="stylesheet">
-    <link href="styles.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/highlight.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/languages/python.min.js"></script>
+  <!--
+    If you are serving your web app in a path other than the root, change the
+    href value below to reflect the base path you are serving from.
+
+    The path provided below has to start and end with a slash "/" in order for
+    it to work correctly.
+
+    For more details:
+    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+
+    This is a placeholder for base href that will be replaced by the value of
+    the `--base-href` argument provided to `flutter build`.
+  -->
+  <base href="/">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="A new Flutter project.">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="fileserver">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png"/>
+
+  <title>fileserver</title>
+  <link rel="manifest" href="manifest.json">
 </head>
-
 <body>
-    <div id="nav-placeholder"></div>
-    <div class="bg-container">
-        <img src="assets/images/ai_background.jpg" alt="AI Background" class="bg-image">
-    </div>
-    <div class="introduction-ai">
-        <div class="ai-general-filler">
-            <div class="ai-general-image">
-                <img src="assets/images/computer_vision.jpg" alt="AI Image" class="ai-image">
-            </div>
-            <div class="ai-general">
-                <p>Artificial Intelligence (AI) is the simulation of human intelligence in machines designed to perform
-                    tasks that typically require human cognition, such as learning from data, making decisions, solving
-                    problems, and understanding language. It is widely applied in areas like healthcare, finance,
-                    robotics, and everyday technologies, enabling systems to adapt, analyze, and interact intelligently
-                    with their environment.</p>
-            </div>
-        </div>
-        <div class="types-of-ai">
-            <h2>Different types of machine learning</h2>
-            <div class="ai-categories">
-                <a href="assets/pages/supervised_learning.html">
-                    <div class="ai-category">
-                        <h2>Supervised Learning</h2>
-                        <div class="ai-description">
-                            <p>Algorithms learn from labeled data to make predictions.</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="assets/pages/unsupervised_learning.html">
-                    <div class="ai-category">
-                        <h2>Unsupervised Learning</h2>
-                        <div class="ai-description">
-                            <p>Algorithms find patterns in unlabeled data.</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="assets/pages/semisupervised_learning.html">
-                    <div class="ai-category">
-                        <h2>Semi-supervised learning</h2>
-                        <div class="ai-description">
-                            <p>Algorithms learn from a small amount of labeled data and a large amount of unlabeled
-                                data.
-                            </p>
-                        </div>
-                    </div>
-                </a>
-                <a href="#!">
-                    <div class="ai-category">
-                        <h2>Reinforcement Learning</h2>
-                        <div class="ai-description">
-                            <p>Algorithms learn by interacting with an environment to maximize rewards.</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </div>
-
-        <div class="ai-tasks">
-            <h2>Common AI Tasks</h2>
-            <div class="task-list">
-                <a href="#!">
-                    <div class="task-item">
-                        <h3>Image Recognition</h3>
-                        <p>Identifying objects in images.</p>
-                    </div>
-                </a>
-                <a href="#!">
-                    <div class="task-item">
-                        <h3>Natural Language Processing</h3>
-                        <p>Understanding and generating human language.</p>
-                    </div>
-                </a>
-                <a href="#!">
-                    <div class="task-item">
-                        <h3>Speech Recognition</h3>
-                        <p>Converting spoken language into text.</p>
-                    </div>
-                </a>
-                <a href="#!">
-                    <div class="task-item">
-                        <h3>Recommendation Systems</h3>
-                        <p>Suggesting products or content based on user preferences.</p>
-                    </div>
-                </a>
-            </div>
-        </div>
-
-        <div id="content"></div>
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.0.2/marked.min.js"></script>
-    <script src="script.js"></script>
-    <script src="navbar.js"></script>
+  <script src="flutter_bootstrap.js" async></script>
 </body>
-
 </html>
