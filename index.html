@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>REadme.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="samojezdny--zdalnie-sterowany-samochodzik-%E2%80%93-instrukcja-budowy-i-konfiguracji">Samojezdny / Zdalnie sterowany samochodzik – instrukcja budowy i konfiguracji</h1>
+<p>Ten plik README opisuje, jak zbudować i skonfigurować samojezdny lub zdalnie sterowany samochodzik na bazie podwozia 4WD z Raspberry Pi Zero W jako kontrolerem. Projekt umożliwia autonomię (unikanie przeszkód za pomocą czujnika HC-SR04, śledzenie linii z czujnikami IR) oraz zdalne sterowanie przez Wi-Fi. Poniżej znajdziesz listę komponentów, instrukcje montażu, konfigurację oprogramowania, przykładowy kod oraz wskazówki dotyczące bezpieczeństwa.</p>
+<hr>
+<h2 id="spis-tre%C5%9Bci">Spis treści</h2>
+<ul>
+<li><a href="#samojezdny--zdalnie-sterowany-samochodzik--instrukcja-budowy-i-konfiguracji">Samojezdny / Zdalnie sterowany samochodzik – instrukcja budowy i konfiguracji</a>
+<ul>
+<li><a href="#spis-tre%C5%9Bci">Spis treści</a></li>
+<li><a href="#lista-komponent%C3%B3w">Lista komponentów</a></li>
+<li><a href="#wymagania-oprogramowania">Wymagania oprogramowania</a>
+<ul>
+<li><a href="#biblioteki-python">Biblioteki Python</a></li>
+<li><a href="#instalacja">Instalacja</a></li>
+</ul>
+</li>
+<li><a href="#budowa-i-monta%C5%BC">Budowa i montaż</a></li>
+<li><a href="#konfiguracja-raspberry-pi">Konfiguracja Raspberry Pi</a></li>
+<li><a href="#przyk%C5%82adowy-kod">Przykładowy kod</a>
+<ul>
+<li><a href="#sterowanie-silnikami">Sterowanie silnikami</a></li>
+<li><a href="#unikanie-przeszk%C3%B3d">Unikanie przeszkód</a></li>
+<li><a href="#%C5%9Bledzenie-linii">Śledzenie linii</a></li>
+<li><a href="#zdalne-sterowanie-przez-wi-fi">Zdalne sterowanie przez Wi-Fi</a></li>
+</ul>
+</li>
+<li><a href="#uwagi-dotycz%C4%85ce-bezpiecze%C5%84stwa">Uwagi dotyczące bezpieczeństwa</a></li>
+<li><a href="#rozwi%C4%85zywanie-problem%C3%B3w">Rozwiązywanie problemów</a></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="lista-komponent%C3%B3w">Lista komponentów</h2>
+<ul>
+<li><strong>Chassis Rectangle 4WD (ROB-07289)</strong> – Podwozie z 4 kołami i napędem (54,90 zł, 1 szt.).</li>
+<li><strong>2× L298N (MOD-08227)</strong> – Sterownik silników (19,90 zł/szt., 2 szt., 39,80 zł).</li>
+<li><strong>HC-SR04 (MOD-01420)</strong> – Czujnik ultradźwiękowy (2–200 cm, 8,90 zł, 1 szt.).</li>
+<li><strong>Zestaw przewodów żeńsko-męskich 20 cm, 40 szt. (JUS-19621)</strong> – Połączenia (6,50 zł, 1 szt.).</li>
+<li><strong>Płytka stykowa 400 otworów (JUS-19942)</strong> – Montaż układu (6,90 zł, 1 szt.).</li>
+<li><strong>Raspberry Pi Zero W 512MB RAM (RPI-08330)</strong> – Kontroler z Wi-Fi (69,90 zł, 1 szt.).</li>
+<li><strong>2× Cytron Maker Reflect (CTN-16056)</strong> – Czujniki IR do linii (9,50 zł/szt., 2 szt., 19,00 zł).</li>
+<li><strong>Konwerter poziomów logicznych 3.3 V ↔ 5 V (MOD-01513)</strong> – Bezpieczne połączenie (12,90 zł, 1 szt.).</li>
+<li><strong>Przetwornica LM2596 3.2V–35V 3A (MOD-02967)</strong> – Obniżanie napięcia (9,90 zł, 1 szt.).</li>
+<li><strong>Taśma dwustronna piankowa 5 mm × 3 m (MOD-05551)</strong> – Mocowanie (9,50 zł, 1 szt.).</li>
+<li><strong>Kamera OdSeven OV5647 5Mpx (ODS-05619)</strong> – Wizja maszynowa (24,90 zł, 1 szt.).</li>
+<li><strong>Karta microSD 16 GB Goodram (KAP-02123)</strong> – System operacyjny (11,39 zł, 1 szt.).</li>
+<li><strong>Koszyk na 2× 18650 (AKC-05240)</strong> – Zasilanie (3,99 zł, 1 szt.).</li>
+<li><strong>Ładowarka XTAR MC2 (AKC-08543)</strong> – Ładowanie akumulatorów (26,90 zł, 1 szt.).</li>
+<li><strong>2× Ogniwo 18650 XTAR 2600 mAh (ZAS-09067)</strong> – Zasilanie (27,90 zł/szt., 2 szt., 55,80 zł).</li>
+<li><strong>Przełącznik On-Off (UCC-08382)</strong> – Włączanie/wyłączanie (2,90 zł, 1 szt.).</li>
+<li><strong>Zestaw radiatorów (MOD-09871)</strong> – Chłodzenie RPi (2,30 zł, 1 szt.).</li>
+<li><strong>Bezpiecznik Midi 5 A (KAB-08810)</strong> – Ochrona przed zwarciem (1,65 zł, 1 szt.).</li>
+<li><strong>Kondensator elektrolityczny 470 µF (PAS-04384)</strong> – Stabilizacja napięcia (2,50 zł, 1 szt.).</li>
+<li><strong>Przewody męsko-męskie (JUS-19950)</strong> – Połączenia pomocnicze (7,90 zł, 1 szt.).</li>
+<li><strong>Przetwornik A/C MCP3008 (UCC-02358)</strong> – Dla czujników IR (15,90 zł, 1 szt.).</li>
+</ul>
+<hr>
+<h2 id="wymagania-oprogramowania">Wymagania oprogramowania</h2>
+<h3 id="biblioteki-python">Biblioteki Python</h3>
+<ul>
+<li><code>RPi.GPIO</code> – Sterowanie GPIO.</li>
+<li><code>opencv-python</code> – Obsługa kamery.</li>
+<li><code>Flask</code> – Zdalne sterowanie przez Wi-Fi.</li>
+<li><code>spidev</code> – Obsługa MCP3008 dla czujników IR.</li>
+</ul>
+<h3 id="instalacja">Instalacja</h3>
+<pre class="hljs"><code><div>sudo apt update
+sudo apt install python3-pip python3-rpi.gpio python3-spidev
+pip3 install opencv-python flask
+</div></code></pre>
+<hr>
+<h2 id="budowa-i-monta%C5%BC">Budowa i montaż</h2>
+<ol>
+<li>
+<p><strong>Złożenie podwozia</strong>:</p>
+<ul>
+<li>Złóż podwozie 4WD (ROB-07289) według instrukcji. Przykręć silniki i koła.</li>
+<li>Sprawdź, czy koła obracają się swobodnie.</li>
+</ul>
+</li>
+<li>
+<p><strong>Montaż komponentów</strong>:</p>
+<ul>
+<li>Użyj taśmy piankowej (MOD-05551) do zamocowania Raspberry Pi, płytki stykowej, przetwornicy i koszyka na akumulatory.</li>
+<li>Zamocuj czujnik HC-SR04 z przodu (dla unikania przeszkód).</li>
+<li>Czujniki IR (CTN-16056) umieść pod spodem, 1–2 cm od podłoża, w linii kół.</li>
+</ul>
+</li>
+<li>
+<p><strong>Zasilanie</strong>:</p>
+<ul>
+<li>Włóż dwa akumulatory 18650 (ZAS-09067) do koszyka (AKC-05240).</li>
+<li>Podłącz koszyk do przetwornicy LM2596 przez bezpiecznik 5 A (KAB-08810) i przełącznik (UCC-08382).</li>
+<li>Ustaw przetwornicę na 5.0 V (sprawdź multimetrem).</li>
+<li>Dodaj kondensator 470 µF (PAS-04384) na wyjściu przetwornicy.</li>
+</ul>
+</li>
+<li>
+<p><strong>Kamera</strong>:</p>
+<ul>
+<li>Podłącz kamerę OV5647 (ODS-05619) do gniazda CSI na Raspberry Pi.</li>
+<li>Upewnij się, że taśma jest dobrze włożona.</li>
+</ul>
+</li>
+<li>
+<p><strong>Radiatory</strong>:</p>
+<ul>
+<li>Przyklej radiatory (MOD-09871) na Raspberry Pi, aby zapobiec przegrzaniu.</li>
+</ul>
+</li>
+<li>
+<p><strong>Połączenia</strong>:</p>
+<ul>
+<li>Użyj przewodów żeńsko-męskich i męsko-męskich do połączenia komponentów.</li>
+<li>Podłącz moduły L298N do silników i Raspberry Pi (użyj GPIO do sterowania).</li>
+<li>Czujnik HC-SR04 podłącz przez konwerter poziomów logicznych (MOD-01513).</li>
+<li>Czujniki IR podłącz do MCP3008, a ten do SPI na Raspberry Pi.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="konfiguracja-raspberry-pi">Konfiguracja Raspberry Pi</h2>
+<ol>
+<li>
+<p><strong>Przygotowanie karty microSD</strong>:</p>
+<ul>
+<li>
+<p>Pobierz Raspberry Pi Imager.</p>
+</li>
+<li>
+<p>Wgraj <strong>Raspberry Pi OS Lite</strong> na kartę microSD (KAP-02123).</p>
+</li>
+<li>
+<p>W katalogu <code>/boot</code> utwórz plik <code>ssh</code> (bez rozszerzenia).</p>
+</li>
+<li>
+<p>Skonfiguruj Wi-Fi w <code>/boot/wpa_supplicant.conf</code>:</p>
+<pre class="hljs"><code><div>country=PL
+network={
+    ssid=<span class="hljs-string">"TwojaSiecWiFi"</span>
+    psk=<span class="hljs-string">"TwojeHaslo"</span>
+}
+</div></code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Uruchomienie</strong>:</p>
+<ul>
+<li>
+<p>Włóż kartę microSD, podłącz zasilanie (5 V z przetwornicy).</p>
+</li>
+<li>
+<p>Połącz się przez SSH: <code>ssh pi@raspberrypi.local</code> (hasło: <code>raspberry</code>).</p>
+</li>
+<li>
+<p>Zaktualizuj system:</p>
+<pre class="hljs"><code><div>sudo apt update &amp;&amp; sudo apt upgrade
+</div></code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Włączenie interfejsów</strong>:</p>
+<ul>
+<li>Uruchom <code>sudo raspi-config</code>:
+<ul>
+<li>Włącz kamerę: <strong>Interfacing Options</strong> → <strong>Camera</strong> → Enable.</li>
+<li>Włącz SPI: <strong>Interfacing Options</strong> → <strong>SPI</strong> → Enable.</li>
+<li>Ustaw strefę czasową i język w <strong>Localisation Options</strong>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Instalacja bibliotek</strong>:</p>
+<pre class="hljs"><code><div>sudo apt install python3-pip python3-rpi.gpio python3-spidev
+pip3 install opencv-python flask
+</div></code></pre>
+</li>
+<li>
+<p><strong>Test kamery</strong>:</p>
+<ul>
+<li>Wykonaj: <code>raspistill -o test.jpg</code>.</li>
+<li>Jeśli plik się utworzy, kamera działa.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="przyk%C5%82adowy-kod">Przykładowy kod</h2>
+<h3 id="sterowanie-silnikami">Sterowanie silnikami</h3>
+<p>Podstawowy kod do sterowania ruchem samochodziku.</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">import</span> RPi.GPIO <span class="hljs-keyword">as</span> GPIO
+<span class="hljs-keyword">import</span> time
+
+GPIO.setmode(GPIO.BCM)
+pins = [<span class="hljs-number">17</span>, <span class="hljs-number">18</span>, <span class="hljs-number">27</span>, <span class="hljs-number">22</span>]  <span class="hljs-comment"># Przykładowe piny dla L298N</span>
+<span class="hljs-keyword">for</span> pin <span class="hljs-keyword">in</span> pins:
+    GPIO.setup(pin, GPIO.OUT)
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">forward</span><span class="hljs-params">()</span>:</span>
+    GPIO.output(<span class="hljs-number">17</span>, GPIO.HIGH)
+    GPIO.output(<span class="hljs-number">18</span>, GPIO.LOW)
+    GPIO.output(<span class="hljs-number">27</span>, GPIO.HIGH)
+    GPIO.output(<span class="hljs-number">22</span>, GPIO.LOW)
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">stop</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-keyword">for</span> pin <span class="hljs-keyword">in</span> pins:
+        GPIO.output(pin, GPIO.LOW)
+
+<span class="hljs-keyword">try</span>:
+    forward()
+    time.sleep(<span class="hljs-number">2</span>)
+    stop()
+<span class="hljs-keyword">except</span> KeyboardInterrupt:
+    GPIO.cleanup()
+</div></code></pre>
+<h3 id="unikanie-przeszk%C3%B3d">Unikanie przeszkód</h3>
+<p>Kod do wykrywania przeszkód za pomocą HC-SR04.</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">import</span> RPi.GPIO <span class="hljs-keyword">as</span> GPIO
+<span class="hljs-keyword">import</span> time
+
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(<span class="hljs-number">6</span>, GPIO.OUT)  <span class="hljs-comment"># TRIG</span>
+GPIO.setup(<span class="hljs-number">13</span>, GPIO.IN)  <span class="hljs-comment"># ECHO</span>
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_distance</span><span class="hljs-params">()</span>:</span>
+    GPIO.output(<span class="hljs-number">6</span>, <span class="hljs-literal">True</span>)
+    time.sleep(<span class="hljs-number">0.00001</span>)
+    GPIO.output(<span class="hljs-number">6</span>, <span class="hljs-literal">False</span>)
+    start = time.time()
+    <span class="hljs-keyword">while</span> GPIO.input(<span class="hljs-number">13</span>) == <span class="hljs-number">0</span>:
+        start = time.time()
+    <span class="hljs-keyword">while</span> GPIO.input(<span class="hljs-number">13</span>) == <span class="hljs-number">1</span>:
+        end = time.time()
+    <span class="hljs-keyword">return</span> ((end - start) * <span class="hljs-number">17150</span>)
+
+<span class="hljs-keyword">try</span>:
+    <span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:
+        dist = get_distance()
+        print(<span class="hljs-string">f"Odległość: <span class="hljs-subst">{dist:<span class="hljs-number">.1</span>f}</span> cm"</span>)
+        <span class="hljs-keyword">if</span> dist &lt; <span class="hljs-number">20</span>:
+            stop()
+        <span class="hljs-keyword">else</span>:
+            forward()
+        time.sleep(<span class="hljs-number">0.5</span>)
+<span class="hljs-keyword">except</span> KeyboardInterrupt:
+    GPIO.cleanup()
+</div></code></pre>
+<h3 id="%C5%9Bledzenie-linii">Śledzenie linii</h3>
+<p>Kod do śledzenia linii za pomocą czujników IR i MCP3008.</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">import</span> spidev
+<span class="hljs-keyword">import</span> RPi.GPIO <span class="hljs-keyword">as</span> GPIO
+
+spi = spidev.SpiDev()
+spi.open(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>)
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">read_adc</span><span class="hljs-params">(channel)</span>:</span>
+    adc = spi.xfer2([<span class="hljs-number">1</span>, (<span class="hljs-number">8</span> + channel) &lt;&lt; <span class="hljs-number">4</span>, <span class="hljs-number">0</span>])
+    <span class="hljs-keyword">return</span> ((adc[<span class="hljs-number">1</span>] &amp; <span class="hljs-number">3</span>) &lt;&lt; <span class="hljs-number">8</span>) + adc[<span class="hljs-number">2</span>]
+
+<span class="hljs-keyword">try</span>:
+    <span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:
+        left = read_adc(<span class="hljs-number">0</span>)
+        right = read_adc(<span class="hljs-number">1</span>)
+        <span class="hljs-keyword">if</span> left &gt; <span class="hljs-number">500</span> <span class="hljs-keyword">and</span> right &gt; <span class="hljs-number">500</span>:
+            forward()
+        <span class="hljs-keyword">elif</span> left &gt; <span class="hljs-number">500</span>:
+            <span class="hljs-comment"># Skręć w prawo</span>
+            GPIO.output(<span class="hljs-number">27</span>, GPIO.LOW)
+        <span class="hljs-keyword">elif</span> right &gt; <span class="hljs-number">500</span>:
+            <span class="hljs-comment"># Skręć w lewo</span>
+            GPIO.output(<span class="hljs-number">17</span>, GPIO.LOW)
+        <span class="hljs-keyword">else</span>:
+            stop()
+        time.sleep(<span class="hljs-number">0.1</span>)
+<span class="hljs-keyword">except</span> KeyboardInterrupt:
+    GPIO.cleanup()
+    spi.close()
+</div></code></pre>
+<h3 id="zdalne-sterowanie-przez-wi-fi">Zdalne sterowanie przez Wi-Fi</h3>
+<p>Prosty serwer Flask do sterowania przez przeglądarkę.</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">from</span> flask <span class="hljs-keyword">import</span> Flask
+<span class="hljs-keyword">import</span> RPi.GPIO <span class="hljs-keyword">as</span> GPIO
+
+app = Flask(__name__)
+GPIO.setmode(GPIO.BCM)
+
+<span class="hljs-meta">@app.route('/control/&lt;cmd&gt;')</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">control</span><span class="hljs-params">(cmd)</span>:</span>
+    <span class="hljs-keyword">if</span> cmd == <span class="hljs-string">'forward'</span>:
+        boron()
+    <span class="hljs-keyword">elif</span> cmd == <span class="hljs-string">'stop'</span>:
+        stop()
+    <span class="hljs-keyword">return</span> <span class="hljs-string">"OK"</span>
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:
+    app.run(host=<span class="hljs-string">'0.0.0.0'</span>, port=<span class="hljs-number">5000</span>)
+</div></code></pre>
+<p><strong>Uruchomienie</strong>: Zapisz jako <code>app.py</code>, uruchom: <code>python3 app.py</code>. W przeglądarce wpisz: <code>http://&lt;IP_Raspberry_Pi&gt;:5000/control/forward</code>.</p>
+<hr>
+<h2 id="uwagi-dotycz%C4%85ce-bezpiecze%C5%84stwa">Uwagi dotyczące bezpieczeństwa</h2>
+<p>⚠️ <strong>Ostrzeżenia</strong>:</p>
+<ul>
+<li><strong>Akumulatory 18650</strong>: Nie zwaraj, nie przeładowuj, nie rozładowuj poniżej 3 V. Używaj ładowarki XTAR MC2.</li>
+<li><strong>Zasilanie</strong>: Ustaw przetwornicę na 5.0 V (sprawdź multimetrem).</li>
+<li><strong>Bezpiecznik 5 A</strong>: Obowiązkowy dla ochrony przed zwarciem.</li>
+<li><strong>Kondensator 470 µF</strong>: Stabilizuje napięcie na przetwornicy.</li>
+<li><strong>Testowanie</strong>: Sprawdzaj każdy moduł osobno przed pełnym montażem.</li>
+<li><strong>Konwerter poziomów</strong>: Używaj dla HC-SR04 (pin ECHO) i innych modułów 5 V.</li>
+</ul>
+<p>💡 <strong>Uwaga</strong>: Sprawdź napięcia (3.3 V/5 V) przed podłączeniem.</p>
+<hr>
+<h2 id="rozwi%C4%85zywanie-problem%C3%B3w">Rozwiązywanie problemów</h2>
+<ul>
+<li>
+<p><strong>Raspberry Pi nie startuje</strong>:</p>
+<ul>
+<li>Sprawdź napięcie przetwornicy (5.0 V).</li>
+<li>Upewnij się, że karta microSD ma system.</li>
+</ul>
+</li>
+<li>
+<p><strong>Silniki nie działają</strong>:</p>
+<ul>
+<li>Sprawdź jumper 5 V na L298N.</li>
+<li>Testuj silniki osobno.</li>
+</ul>
+</li>
+<li>
+<p><strong>HC-SR04 daje błędne odczyty</strong>:</p>
+<ul>
+<li>Upewnij się, że używasz konwertera poziomów logicznych.</li>
+<li>Sprawdź połączenia TRIG/ECHO.</li>
+</ul>
+</li>
+<li>
+<p><strong>Czujniki IR nie działają</strong>:</p>
+<ul>
+<li>Włącz SPI w <code>raspi-config</code>.</li>
+<li>Sprawdź odległość czujników od podłoża (1–2 cm).</li>
+</ul>
+</li>
+<li>
+<p><strong>Kamera nie działa</strong>:</p>
+<ul>
+<li>Sprawdź taśmę CSI.</li>
+<li>Włącz kamerę w <code>raspi-config</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Wi-Fi nie działa</strong>:</p>
+<ul>
+<li>Sprawdź plik <code>wpa_supplicant.conf</code>.</li>
+<li>Upewnij się, że Raspberry Pi jest w zasięgu sieci.</li>
+</ul>
+</li>
+</ul>
+
+</body>
+</html>
