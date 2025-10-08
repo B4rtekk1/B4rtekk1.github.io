@@ -656,7 +656,7 @@ GPIO.setmode(GPIO.BCM)
 <span class="hljs-meta">@app.route('/control/&lt;cmd&gt;')</span>
 <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">control</span><span class="hljs-params">(cmd)</span>:</span>
     <span class="hljs-keyword">if</span> cmd == <span class="hljs-string">'forward'</span>:
-        boron()
+        forward()
     <span class="hljs-keyword">elif</span> cmd == <span class="hljs-string">'stop'</span>:
         stop()
     <span class="hljs-keyword">return</span> <span class="hljs-string">"OK"</span>

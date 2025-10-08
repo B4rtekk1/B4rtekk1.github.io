@@ -275,7 +275,7 @@ GPIO.setmode(GPIO.BCM)
 @app.route('/control/<cmd>')
 def control(cmd):
     if cmd == 'forward':
-        boron()
+        forward()
     elif cmd == 'stop':
         stop()
     return "OK"
