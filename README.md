@@ -1,5 +1,7 @@
 # Samojezdny / Zdalnie sterowany samochodzik – instrukcja budowy i konfiguracji
 
+<h2> Wersje pdf mozna pobrać <a href = "README.pdf" download>tutaj</a></h2>
+
 Ten plik README opisuje, jak zbudować i skonfigurować samojezdny lub zdalnie sterowany samochodzik na bazie podwozia 4WD z Raspberry Pi Zero W jako kontrolerem. Projekt umożliwia autonomię (unikanie przeszkód za pomocą czujnika HC-SR04, śledzenie linii z czujnikami IR) oraz zdalne sterowanie przez Wi-Fi. Poniżej znajdziesz listę komponentów, instrukcje montażu, konfigurację oprogramowania, przykładowy kod oraz wskazówki dotyczące bezpieczeństwa.
 
 ---
