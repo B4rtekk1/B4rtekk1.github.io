@@ -28,27 +28,27 @@ Ten plik README opisuje, jak zbudować i skonfigurować samojezdny lub zdalnie s
 
 ## Lista komponentów
 
-- **Chassis Rectangle 4WD (ROB-07289)** – Podwozie z 4 kołami i napędem (54,90 zł, 1 szt.).
-- **2× L298N (MOD-08227)** – Sterownik silników (19,90 zł/szt., 2 szt., 39,80 zł).
-- **HC-SR04 (MOD-01420)** – Czujnik ultradźwiękowy (2–200 cm, 8,90 zł, 1 szt.).
-- **Zestaw przewodów żeńsko-męskich 20 cm, 40 szt. (JUS-19621)** – Połączenia (6,50 zł, 1 szt.).
-- **Płytka stykowa 400 otworów (JUS-19942)** – Montaż układu (6,90 zł, 1 szt.).
-- **Raspberry Pi Zero W 512MB RAM (RPI-08330)** – Kontroler z Wi-Fi (69,90 zł, 1 szt.).
-- **2× Cytron Maker Reflect (CTN-16056)** – Czujniki IR do linii (9,50 zł/szt., 2 szt., 19,00 zł).
-- **Konwerter poziomów logicznych 3.3 V ↔ 5 V (MOD-01513)** – Bezpieczne połączenie (12,90 zł, 1 szt.).
-- **Przetwornica LM2596 3.2V–35V 3A (MOD-02967)** – Obniżanie napięcia (9,90 zł, 1 szt.).
-- **Taśma dwustronna piankowa 5 mm × 3 m (MOD-05551)** – Mocowanie (9,50 zł, 1 szt.).
-- **Kamera OdSeven OV5647 5Mpx (ODS-05619)** – Wizja maszynowa (24,90 zł, 1 szt.).
-- **Karta microSD 16 GB Goodram (KAP-02123)** – System operacyjny (11,39 zł, 1 szt.).
-- **Koszyk na 2× 18650 (AKC-05240)** – Zasilanie (3,99 zł, 1 szt.).
-- **Ładowarka XTAR MC2 (AKC-08543)** – Ładowanie akumulatorów (26,90 zł, 1 szt.).
-- **2× Ogniwo 18650 XTAR 2600 mAh (ZAS-09067)** – Zasilanie (27,90 zł/szt., 2 szt., 55,80 zł).
-- **Przełącznik On-Off (UCC-08382)** – Włączanie/wyłączanie (2,90 zł, 1 szt.).
-- **Zestaw radiatorów (MOD-09871)** – Chłodzenie RPi (2,30 zł, 1 szt.).
-- **Bezpiecznik Midi 5 A (KAB-08810)** – Ochrona przed zwarciem (1,65 zł, 1 szt.).
-- **Kondensator elektrolityczny 470 µF (PAS-04384)** – Stabilizacja napięcia (2,50 zł, 1 szt.).
-- **Przewody męsko-męskie (JUS-19950)** – Połączenia pomocnicze (7,90 zł, 1 szt.).
-- **Przetwornik A/C MCP3008 (UCC-02358)** – Dla czujników IR (15,90 zł, 1 szt.).
+- **Chassis Rectangle 4WD (ROB-07289)** – Podwozie z 4 kołami i napędem.
+- **2× L298N (MOD-08227)** – Sterownik silników.
+- **HC-SR04 (MOD-01420)** – Czujnik ultradźwiękowy.
+- **Zestaw przewodów żeńsko-męskich 20 cm, 40 szt. (JUS-19621)** – Połączenia.
+- **Płytka stykowa 400 otworów (JUS-19942)** – Montaż układu.
+- **Raspberry Pi Zero W 512MB RAM (RPI-08330)** – Kontroler z Wi-Fi.
+- **2× Cytron Maker Reflect (CTN-16056)** – Czujniki IR do linii.
+- **Konwerter poziomów logicznych 3.3 V ↔ 5 V (MOD-01513)** – Bezpieczne połączenie.
+- **Przetwornica LM2596 3.2V–35V 3A (MOD-02967)** – Obniżanie napięcia.
+- **Taśma dwustronna piankowa 5 mm × 3 m (MOD-05551)** – Mocowanie.
+- **Kamera OdSeven OV5647 5Mpx (ODS-05619)** – Wizja maszynowa.
+- **Karta microSD 16 GB Goodram (KAP-02123)** – System operacyjny.
+- **Koszyk na 2× 18650 (AKC-05240)** – Zasilanie.
+- **Ładowarka XTAR MC2 (AKC-08543)** – Ładowanie akumulatorów.
+- **2× Ogniwo 18650 XTAR 2600 mAh (ZAS-09067)** – Zasilanie.
+- **Przełącznik On-Off (UCC-08382)** – Włączanie/wyłączanie.
+- **Zestaw radiatorów (MOD-09871)** – Chłodzenie RPi.
+- **Bezpiecznik Midi 5 A (KAB-08810)** – Ochrona przed zwarciem.
+- **Kondensator elektrolityczny 470 µF (PAS-04384)** – Stabilizacja napięcia.
+- **Przewody męsko-męskie (JUS-19950)** – Połączenia pomocnicze.
+- **Przetwornik A/C MCP3008 (UCC-02358)** – Dla czujników IR.
 
 ---
 
