@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Year | IOAI Archive</title>
+    <meta name="description"
+        content="Select the year of the International Olympiad in Artificial Intelligence to view solutions.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        /* Specific page adjustments */
+        .selection-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .year-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            text-align: center;
+            text-decoration: none;
+            transition: var(--transition-slow);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 250px;
+        }
+
+        .year-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, transparent 100%);
+            z-index: 1;
+        }
+
+        .year-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px var(--accent-glow);
+        }
+
+        .year-number {
+            font-family: var(--font-heading);
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            z-index: 2;
+        }
+
+        .year-card:hover .year-number {
+            background: linear-gradient(135deg, var(--accent) 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .year-label {
+            color: var(--text-dim);
+            font-size: 1.1rem;
+            z-index: 2;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cursor-glow"></div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">BK<span>.</span></a>
+            <ul class="nav-links">
+                <li><a href="../index.html#ioai" class="nav-item">Back to Home</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero" style="min-height: 80vh; align-items: flex-start;">
+            <div class="container">
+                <div class="status-badge fade-up">
+                    <span class="status-dot"></span>
+                    IOAI Archive
+                </div>
+                <h1 class="reveal-text">Select <span class="highlight">Year</span></h1>
+                <p class="hero-subtitle fade-up">Choose the competition year to browse tasks and solutions.</p>
+
+                <div class="selection-grid fade-up">
+                    <a href="./2024/" class="year-card magnetic">
+                        <span class="year-number">2024</span>
+                        <span class="year-label">Inaugural Olympiad</span>
+                    </a>
+                    <a href="./2025/" class="year-card magnetic">
+                        <span class="year-number">2025</span>
+                        <span class="year-label">Current Season</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="../main.js"></script>
+</body>
+
+</html>

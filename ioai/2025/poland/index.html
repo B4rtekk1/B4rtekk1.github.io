@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poland Solutions | IOAI 2025</title>
+    <meta name="description" content="View IOAI 2025 solutions from Poland.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="../../../style.css">
+    <style>
+        .task-list {
+            display: grid;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .task-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            padding: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-decoration: none;
+            transition: var(--transition-fast);
+        }
+
+        .task-item:hover {
+            border-color: var(--accent);
+            background: rgba(40, 40, 40, 0.4);
+            transform: translateX(5px);
+        }
+
+        .task-info h3 {
+            font-family: var(--font-heading);
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .task-info p {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        .task-meta {
+            text-align: right;
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .task-tag {
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--accent);
+            padding: 0.3rem 0.8rem;
+            border-radius: 5px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            white-space: nowrap;
+        }
+
+        .stage-tag {
+            background: rgba(139, 92, 246, 0.1);
+            color: #a78bfa;
+            padding: 0.3rem 0.8rem;
+            border-radius: 5px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            white-space: nowrap;
+        }
+
+        .breadcrumbs {
+            margin-bottom: 2rem;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        .breadcrumbs a {
+            color: var(--text-dim);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .breadcrumbs a:hover {
+            color: var(--accent);
+        }
+
+        .breadcrumbs span {
+            margin: 0 0.5rem;
+            opacity: 0.5;
+        }
+
+        .breadcrumbs .current {
+            color: var(--primary);
+        }
+
+        /* Filter Controls */
+        .filter-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 3rem;
+            margin-bottom: 2rem;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .search-wrapper {
+            position: relative;
+            flex-grow: 1;
+            max-width: 400px;
+        }
+
+        .search-input {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 0.8rem 1rem 0.8rem 2.8rem;
+            color: var(--primary);
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            transition: var(--transition-fast);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 15px var(--accent-glow);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1.2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 0.4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+            transition: var(--transition-fast);
+        }
+
+        .search-input:focus+.search-icon {
+            opacity: 0.8;
+            color: var(--accent);
+        }
+
+        .search-icon svg {
+            width: 18px;
+            height: 18px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .filter-group {
+            display: flex;
+            gap: 0.8rem;
+        }
+
+        .filter-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            padding: 0.6rem 1.2rem;
+            border-radius: 10px;
+            color: var(--secondary);
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition-fast);
+        }
+
+        .filter-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--primary);
+        }
+
+        .filter-btn.active {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+            box-shadow: 0 0 15px var(--accent-glow);
+        }
+
+        /* Stages Section */
+        .stages-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .stage-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition-slow);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stage-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .stage-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+        }
+
+        .stage-card h2 {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .stage-card p {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .stage-badge {
+            position: absolute;
+            top: 2.5rem;
+            right: 2.5rem;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent);
+            opacity: 0.6;
+        }
+
+        @media (max-width: 1100px) {
+            .stages-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .stages-container {
+                grid-template-columns: 1fr;
+            }
+
+            .filter-controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .search-wrapper {
+                max-width: none;
+            }
+
+            .filter-group {
+                overflow-x: auto;
+                padding-bottom: 0.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cursor-glow"></div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../../../index.html" class="logo">BK<span>.</span></a>
+            <ul class="nav-links">
+                <li><a href="../../../index.html#ioai" class="nav-item">Back to Home</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero" style="min-height: 80vh; align-items: flex-start;">
+            <div class="container">
+                <div class="breadcrumbs fade-up">
+                    <a href="../../">IOAI Archive</a>
+                    <span>/</span>
+                    <a href="../">2025</a>
+                    <span>/</span>
+                    <span class="current">Poland</span>
+                </div>
+
+                <div class="status-badge fade-up">
+                    <span class="status-dot"></span>
+                    Solutions
+                </div>
+                <h1 class="reveal-text">Tasks & <span class="highlight">Analyses</span></h1>
+                <p class="hero-subtitle fade-up">Technical breakdowns and solution notebooks from IOAI 2025.</p>
+
+                <div class="stages-container fade-up">
+                    <div class="stage-card">
+                        <span class="stage-badge">Stage I</span>
+                        <div class="stage-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                        </div>
+                        <h2>Remote Qualifiers</h2>
+                        <p>Individual remote round focusing on foundational AI tasks and theoretical principles.
+                            Accessible to all eligible students across Poland.</p>
+                    </div>
+                    <div class="stage-card">
+                        <span class="stage-badge">Stage II</span>
+                        <div class="stage-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                                </path>
+                                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                                <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                            </svg>
+                        </div>
+                        <h2>Regional Round</h2>
+                        <p>On-site competitions in major technological hubs: <b>Warszawa, Kraków, Poznań, and
+                                Wrocław</b>. Involves advanced problem-solving.</p>
+                    </div>
+                    <div class="stage-card">
+                        <span class="stage-badge">Finals</span>
+                        <div class="stage-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z">
+                                </path>
+                            </svg>
+                        </div>
+                        <h2>Grand Finals</h2>
+                        <p>The conclusive on-site final held in <b>Poznań</b> to select the national team for the
+                            International Olympiad (IOAI).</p>
+                    </div>
+                </div>
+
+                <div class="filter-controls fade-up">
+                    <div class="search-wrapper">
+                        <input type="text" id="taskSearch" placeholder="Search tasks..." class="search-input">
+                        <div class="search-icon">
+                            <svg viewBox="0 0 24 24">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="filter-group">
+                        <button class="filter-btn active" data-filter="all">All</button>
+                        <button class="filter-btn" data-filter="NLP">NLP</button>
+                        <button class="filter-btn" data-filter="CV">CV</button>
+                        <button class="filter-btn" data-filter="ML">ML</button>
+                    </div>
+                </div>
+
+                <div class="task-list fade-up">
+                    <a href="../../task?year=2025&country=poland&task=hallucinations" class="task-item magnetic"
+                        data-category="NLP" data-stage="Stage I">
+                        <div class="task-info">
+                            <h3>Detecting Hallucinations</h3>
+                            <p>Analyzing and mitigating LLM hallucinations in medical texts.</p>
+                        </div>
+                        <div class="task-meta">
+                            <span class="stage-tag">Stage I</span>
+                            <span class="task-tag">NLP</span>
+                        </div>
+                    </a>
+
+                    <a href="../../task?year=2025&country=poland&task=coin-counting" class="task-item magnetic"
+                        data-category="CV" data-stage="Stage I">
+                        <div class="task-info">
+                            <h3>Coin Counting Machine</h3>
+                            <p>Finds, classifies and overlays the bounding box for coins</p>
+                        </div>
+                        <div class="task-meta">
+                            <span class="stage-tag">Stage I</span>
+                            <span class="task-tag">CV</span>
+                        </div>
+                    </a>
+                    <a href="../../task?year=2025&country=poland&task=ecg-disturbances" class="task-item magnetic"
+                        data-category="ML" data-stage="Stage I">
+                        <div class="task-info">
+                            <h3>Detection of ECG disturbances</h3>
+                            <p>Classification of ECG disturbances</p>
+                        </div>
+                        <div class="task-meta">
+                            <span class="stage-tag">Stage I</span>
+                            <span class="task-tag">ML</span>
+                        </div>
+                    </a>
+
+                    <a href="../../task?year=2025&country=poland&task=noise-labels" class="task-item magnetic"
+                        data-category="CV" data-stage="Stage I">
+                        <div class="task-info">
+                            <h3>Label Noise Robustness</h3>
+                            <p>Handling incorrect labels in imbalanced image datasets.</p>
+                        </div>
+                        <div class="task-meta">
+                            <span class="stage-tag">Stage I</span>
+                            <span class="task-tag">CV</span>
+                        </div>
+                    </a>
+
+                    <a href="../../task?year=2025&country=poland&task=hidden-substrings" class="task-item magnetic"
+                        data-category="NLP" data-stage="Stage I">
+                        <div class="task-info">
+                            <h3>Hidden substrings</h3>
+                            <p>Hidden substrings detection</p>
+                        </div>
+                        <div class="task-meta">
+                            <span class="stage-tag">Stage I</span>
+                            <span class="task-tag">NLP</span>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="../../../main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.getElementById('taskSearch');
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const taskItems = document.querySelectorAll('.task-item');
+
+            function filterTasks() {
+                const searchTerm = searchInput.value.toLowerCase();
+                const activeFilter = document.querySelector('.filter-btn.active').dataset.filter;
+
+                taskItems.forEach(item => {
+                    const title = item.querySelector('h3').textContent.toLowerCase();
+                    const desc = item.querySelector('p').textContent.toLowerCase();
+                    const category = item.dataset.category;
+
+                    const matchesSearch = title.includes(searchTerm) || desc.includes(searchTerm);
+                    const matchesFilter = activeFilter === 'all' || category === activeFilter;
+
+                    if (matchesSearch && matchesFilter) {
+                        item.style.display = 'flex';
+                        item.style.opacity = '1';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            }
+
+            searchInput.addEventListener('input', filterTasks);
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    filterTasks();
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

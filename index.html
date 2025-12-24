@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bartosz Kasyna | Portfolio</title>
+    <meta name="description"
+        content="Portfolio of Bartosz Kasyna - Showcasing example work, current projects, and IOAI contest solutions.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="loader-wrapper">
+        <div class="loader"></div>
+        <div class="loader-text">BK<span>.</span></div>
+    </div>
+    <div class="cursor-glow"></div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#about" class="logo">BK<span>.</span></a>
+
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="#about" class="nav-item magnetic">About</a></li>
+                <li><a href="#skills" class="nav-item magnetic">Skills</a></li>
+                <li><a href="#work" class="nav-item magnetic">Work</a></li>
+                <li><a href="#current" class="nav-item magnetic">Current</a></li>
+                <!-- <li><a href="#experience" class="nav-item magnetic">Experience</a></li> -->
+                <li><a href="#ioai" class="nav-item magnetic">IOAI</a></li>
+                <li><a href="#contact" class="nav-item magnetic">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section id="about" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="status-badge fade-up">
+                        <span class="status-dot"></span>
+                        Available for research & collaboration
+                    </div>
+                    <h1 class="reveal-text">Building the future of <span class="highlight">AI</span> and <span
+                            class="highlight">Software</span>.</h1>
+                    <p class="hero-subtitle fade-up">Hi, I'm Bartosz Kasyna. I'm a software engineer and AI researcher
+                        passionate about building autonomous agents and high-performance systems. Currently pushing the
+                        boundaries of what's possible with large language models.</p>
+                    <div class="hero-actions fade-up">
+                        <a href="#work" class="btn btn-primary magnetic">View My Work</a>
+                        <a href="#contact" class="btn btn-secondary magnetic">Get In Touch</a>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+            </div>
+        </section>
+
+        <section id="skills" class="skills-section">
+            <div class="container">
+                <h2 class="section-title fade-up">Core Expertise</h2>
+                <div class="skills-grid">
+                    <div class="skill-category fade-up">
+                        <h3>Artificial Intelligence</h3>
+                        <ul>
+                            <li>Large Language Models (LLMs)</li>
+                            <li>Autonomous Agents</li>
+                            <li>Computer Vision (YOLO, Transformers)</li>
+                            <li>Reinforcement Learning</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category fade-up">
+                        <h3>Software Engineering</h3>
+                        <ul>
+                            <li>Go / Python / Rust</li>
+                            <li>Distributed Systems</li>
+                            <li>Cloud Infrastructure (AWS, K8s)</li>
+                            <li>Performance Optimization</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category fade-up">
+                        <h3>Product & Design</h3>
+                        <ul>
+                            <li>System Architecture</li>
+                            <li>User Experience Design</li>
+                            <li>Technical Leadership</li>
+                            <li>Product Strategy</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="work" class="work-section">
+            <div class="container">
+                <h2 class="section-title fade-up">Example Work</h2>
+                <div class="work-grid">
+                    <div class="project-card fade-up">
+                        <div class="project-image" id="project-1-img"></div>
+                        <div class="project-content">
+                            <h3>Skysync</h3>
+                            <p>Self-hosted file sync service with desktop and mobile apps.</p>
+                            <div class="project-tags">
+                                <span>Go</span>
+                                <span>Flutter</span>
+                                <span>Server</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card fade-up">
+                        <div class="project-image" id="project-2-img"></div>
+                        <div class="project-content">
+                            <h3>MicroGPT</h3>
+                            <p>Self-hosted LLM agent with web interface and autonomous browsing.</p>
+                            <div class="project-tags">
+                                <span>Python</span>
+                                <span>PyTorch</span>
+                                <span>LLM</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="current" class="current-section">
+            <div class="container">
+                <div class="current-card fade-up">
+                    <div class="current-badge">CURRENT FOCUS</div>
+                    <h2>MicroGPT</h2>
+                    <p>MicroGPT is a self-hosted open-source LLM agent with web interface which can browse the web and
+                        answer
+                        questions.</p>
+                    <div class="progress-wrapper">
+                        <div class="progress-label">R&D Progress - 70%</div>
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 70%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- <section id="experience" class="timeline-section">
+            <div class="container">
+                <h2 class="section-title fade-up">My Journey</h2>
+                <div class="timeline">
+                    <div class="timeline-item current fade-up">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2024 - Present</div>
+                        <div class="timeline-content">
+                            <h3>Lead AI Engineer</h3>
+                            <p>Architecting next-generation coding agents and automating complex engineering workflows
+                                using state-of-the-art LLMs.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item fade-up">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2023 - 2024</div>
+                        <div class="timeline-content">
+                            <h3>Full Stack Developer</h3>
+                            <p>Built scalable cloud-native applications focusing on real-time data processing and
+                                intuitive user interfaces.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item fade-up">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2022 - 2023</div>
+                        <div class="timeline-content">
+                            <h3>AI Research Intern</h3>
+                            <p>Explored computer vision techniques for agricultural automation and optimized inference
+                                on edge devices.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+
+        <section id="ioai" class="ioai-section">
+            <div class="container">
+                <h2 class="section-title fade-up">IOAI Contest Solutions</h2>
+                <div class="ioai-gateway fade-up">
+                    <div class="ioai-gateway-content">
+                        <p class="section-subtitle">Since 2024, I've been participating in the International Olympiad in
+                            Artificial Intelligence, tackling complex problems in NLP, Computer Vision, and AI Safety.
+                            I've archived my solutions and technical write-ups in a dedicated system.</p>
+
+                        <div class="ioai-stats">
+                            <div class="stat-item">
+                                <span class="stat-value">2+</span>
+                                <span class="stat-label">Years of Contests</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value">12+</span>
+                                <span class="stat-label">Task Solutions</span>
+                            </div>
+                        </div>
+
+                        <div class="hero-actions" style="margin-top: 3rem; justify-content: flex-start;">
+                            <a href="ioai/" class="btn btn-primary magnetic">Explore Full Archive</a>
+                            <a href="ioai/task?year=2025&country=poland&task=hallucinations"
+                                class="btn btn-secondary magnetic">Latest:
+                                Hallucinations Page</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="quote-section">
+            <div class="container">
+                <blockquote class="fade-up">
+                    <span class="quote-mark">"</span>
+                    What we want is a machine that can learn from experience.
+                    <footer class="quote-author">— Alan Turing</footer>
+                </blockquote>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <div class="contact-card fade-up">
+                    <h2 class="section-title">Let's Create Together</h2>
+                    <p>I'm always open to discussing innovative projects or research opportunities in AI and system
+                        design.</p>
+                    <div class="contact-links">
+                        <a href="mailto:bartoszkasyna@gmail.com" class="contact-item magnetic">
+                            <span class="label">Email</span>
+                            <span class="value">bartoszkasyna@gmail.com</span>
+                        </a>
+                        <a href="https://github.com/B4rtekk1" class="contact-item magnetic">
+                            <span class="label">GitHub</span>
+                            <span class="value">@B4rtekk1</span>
+                        </a>
+                        <a href="https://linkedin.com/in/bartosz-kasyna" class="contact-item magnetic">
+                            <span class="label">LinkedIn</span>
+                            <span class="value">/in/bartoszkasyna</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Bartosz Kasyna. Built with passion and AI.</p>
+        </div>
+    </footer>
+
+    <button id="back-to-top" class="back-to-top magnetic">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M18 15l-6-6-6 6" />
+        </svg>
+    </button>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,246 @@
+{
+    "2025": {
+        "poland": {
+            "hallucinations": {
+                "title": "Detecting Hallucinations",
+                "subtitle": "A comprehensive approach to identifying and mitigating large language model hallucinations in critical contexts like medicine and law.",
+                "category": "NLP",
+                "chips": [
+                    "NLP",
+                    "XGBoost",
+                    "Factual Consistency",
+                    "ROC AUC Evaluation"
+                ],
+                "requirements": [
+                    {
+                        "label": "Target ROC AUC",
+                        "value": "≥ 0.82"
+                    },
+                    {
+                        "label": "Execution Limit",
+                        "value": "5 min"
+                    },
+                    {
+                        "label": "Max Score",
+                        "value": "100 pts"
+                    },
+                    {
+                        "label": "Samples",
+                        "value": "3,957"
+                    }
+                ],
+                "highlights": [
+                    {
+                        "step": "Step 01",
+                        "title": "Feature Engineering",
+                        "description": "Extraction of statistical markers from token probabilities and semantic consistency between alternative answers."
+                    },
+                    {
+                        "step": "Step 02",
+                        "title": "Gradient Boosting",
+                        "description": "Implementation of an XGBoost classifier optimized for high ROC AUC with strict computational constraints."
+                    },
+                    {
+                        "step": "Step 03",
+                        "title": "Resource Optimization",
+                        "description": "Ensuring sub-5 minute execution on CPU through efficient data pre-processing and model hyper-tuning."
+                    }
+                ],
+                "notebookPath": "./2_wykrywanie_halucynacji_solved.ipynb",
+                "starterPath": "./2_wykrywanie_halucynacji_raw.ipynb"
+            },
+            "coin-counting": {
+                "title": "Coin Counting Machine",
+                "subtitle": "An automated system for detecting and classifying various denominations of coins in images.",
+                "category": "CV",
+                "chips": [
+                    "Computer Vision",
+                    "Object Detection",
+                    "YOLO",
+                    "Image Processing"
+                ],
+                "requirements": [
+                    {
+                        "label": "Accuracy",
+                        "value": "≥ 95%"
+                    },
+                    {
+                        "label": "Processing Time",
+                        "value": "2.0s"
+                    },
+                    {
+                        "label": "Max Score",
+                        "value": "100 pts"
+                    },
+                    {
+                        "label": "Train Images",
+                        "value": "1,200"
+                    }
+                ],
+                "highlights": [
+                    {
+                        "step": "Step 01",
+                        "title": "Preprocessing",
+                        "description": "Applying noise reduction and adaptive thresholding for better edge detection."
+                    },
+                    {
+                        "step": "Step 02",
+                        "title": "Detection",
+                        "description": "Using a fine-tuned YOLOv8 model to localize coins in complex backgrounds."
+                    },
+                    {
+                        "step": "Step 03",
+                        "title": "Classification",
+                        "description": "CNN-based classification to distinguish between similar-sized denominations."
+                    }
+                ],
+                "notebookPath": "./coin_counting.ipynb",
+                "starterPath": "./coin_counting_starter.ipynb"
+            },
+            "ecg-disturbances": {
+                "title": "ECG Disturbances Detection",
+                "subtitle": "Classification of ECG signal disturbances to assist in medical diagnosis.",
+                "category": "ML",
+                "chips": [
+                    "Signal Processing",
+                    "Machine Learning",
+                    "Healthcare AI",
+                    "LSTM"
+                ],
+                "requirements": [
+                    {
+                        "label": "F1 Score",
+                        "value": "≥ 0.88"
+                    },
+                    {
+                        "label": "Latency",
+                        "value": "< 100ms"
+                    },
+                    {
+                        "label": "Max Score",
+                        "value": "100 pts"
+                    },
+                    {
+                        "label": "Channels",
+                        "value": "12-lead"
+                    }
+                ],
+                "highlights": [
+                    {
+                        "step": "Step 01",
+                        "title": "Denoising",
+                        "description": "Wavelet transform for removing high-frequency noise from heart signals."
+                    },
+                    {
+                        "step": "Step 02",
+                        "title": "Feature Extraction",
+                        "description": "Calculating heart rate variability and P-QRS-T wave intervals."
+                    },
+                    {
+                        "step": "Step 03",
+                        "title": "Model Implementation",
+                        "description": "Hybrid CNN-RNN architecture for temporal pattern recognition."
+                    }
+                ],
+                "notebookPath": "./ecg_analysis.ipynb",
+                "starterPath": "./ecg_analysis_starter.ipynb"
+            },
+            "noise-labels": {
+                "title": "Label Noise Robustness",
+                "subtitle": "Training robust neural networks on imbalanced datasets with partially incorrect labels using multi-model loss filtering.",
+                "category": "CV",
+                "chips": [
+                    "Robust Learning",
+                    "Deep Learning",
+                    "Label Noise",
+                    "PyTorch"
+                ],
+                "requirements": [
+                    {
+                        "label": "Target BAC",
+                        "value": "≥ 0.80"
+                    },
+                    {
+                        "label": "Execution Limit",
+                        "value": "5 min (GPU)"
+                    },
+                    {
+                        "label": "Max Score",
+                        "value": "100 pts"
+                    },
+                    {
+                        "label": "Classes",
+                        "value": "Binary"
+                    }
+                ],
+                "highlights": [
+                    {
+                        "step": "Step 01",
+                        "title": "Dual-Model Architecture",
+                        "description": "Training two identical networks in parallel to identify noisy labels through cross-validation of losses."
+                    },
+                    {
+                        "step": "Step 02",
+                        "title": "Batch Balancing",
+                        "description": "Implementing a selection strategy that maintains class proportions even in highly imbalanced datasets."
+                    },
+                    {
+                        "step": "Step 03",
+                        "title": "Loss Filtering",
+                        "description": "Selecting training samples with the lowest losses from the peer model to avoid fitting to noise."
+                    }
+                ],
+                "notebookPath": "./4_noise_in_data_labels_solved.ipynb",
+                "starterPath": "./4_szum_w_etykietach_danych.ipynb"
+            },
+            "hidden-substrings": {
+                "title": "Hidden Substrings Detection",
+                "subtitle": "Discovering latent patterns and sequences within vast textual datasets.",
+                "category": "NLP",
+                "chips": [
+                    "NLP",
+                    "Regex Optimization",
+                    "Pattern Extraction",
+                    "Information Retrieval"
+                ],
+                "requirements": [
+                    {
+                        "label": "Search Speed",
+                        "value": "10GB/min"
+                    },
+                    {
+                        "label": "Pattern Accuracy",
+                        "value": "100%"
+                    },
+                    {
+                        "label": "Max Score",
+                        "value": "100 pts"
+                    },
+                    {
+                        "label": "Scale",
+                        "value": "Large Corpus"
+                    }
+                ],
+                "highlights": [
+                    {
+                        "step": "Step 01",
+                        "title": "Indexing",
+                        "description": "Building an optimized suffix tree for fast substring lookup."
+                    },
+                    {
+                        "step": "Step 02",
+                        "title": "Pattern Matching",
+                        "description": "GPU-accelerated parallel search across multiple text shards."
+                    },
+                    {
+                        "step": "Step 03",
+                        "title": "Summarization",
+                        "description": "Condensing found patterns into actionable insights using LLM."
+                    }
+                ],
+                "notebookPath": "./substring_search.ipynb",
+                "starterPath": "./substring_search_starter.ipynb"
+            }
+        }
+    }
+}

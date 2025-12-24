@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Detail | IOAI Solution</title>
+    <meta name="description" content="Technical deep dive into IOAI task solution.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .hero {
+            position: relative;
+            overflow: hidden;
+            background: #050505;
+            padding-top: 180px !important;
+            padding-bottom: 100px !important;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.15) 0%, transparent 50%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .task-overview {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2rem;
+            backdrop-filter: blur(20px);
+        }
+
+        .task-overview h3 {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .task-overview h3 svg {
+            color: var(--accent);
+        }
+
+        .metric-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .metric-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+
+        .metric-label {
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .metric-value {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+            font-family: var(--font-heading);
+        }
+
+        .context-chips {
+            display: flex;
+            gap: 0.8rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .chip {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            padding: 0.5rem 1rem;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            color: var(--secondary);
+        }
+
+        .breadcrumbs {
+            margin-bottom: 2rem;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        .breadcrumbs a {
+            color: var(--text-dim);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .breadcrumbs a:hover {
+            color: var(--accent);
+        }
+
+        .breadcrumbs span {
+            margin: 0 0.5rem;
+            opacity: 0.5;
+        }
+
+        .breadcrumbs .current {
+            color: var(--primary);
+        }
+
+        @media (max-width: 968px) {
+            .hero .container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero {
+                padding-top: 140px !important;
+                padding-bottom: 60px !important;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="cursor-glow"></div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">BK<span>.</span></a>
+            <ul class="nav-links">
+                <li><a href="../index.html#ioai" class="nav-item">Back to Home</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="main-content" style="display: none;">
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="breadcrumbs fade-up" id="breadcrumb-list">
+                        <!-- Dynamic breadcrumbs -->
+                    </div>
+
+                    <div class="status-badge fade-up">
+                        <span class="status-dot"></span>
+                        Solution Walkthrough
+                    </div>
+                    <h1 class="reveal-text" id="task-title"><!-- Title --></h1>
+                    <p class="hero-subtitle fade-up" id="task-subtitle"><!-- Subtitle --></p>
+
+                    <div class="context-chips fade-up" id="task-chips">
+                        <!-- Chips -->
+                    </div>
+
+                    <div class="hero-actions fade-up"
+                        style="margin-top: 2.5rem; justify-content: flex-start; gap: 1rem; flex-wrap: wrap;">
+                        <a href="#" id="download-solved" class="btn btn-primary" download>
+                            Download Solved
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                style="margin-left: 8px; vertical-align: middle;">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="7 10 12 15 17 10"></polyline>
+                                <line x1="12" y1="15" x2="12" y2="3"></line>
+                            </svg>
+                        </a>
+                        <a href="#" id="download-raw" class="btn btn-secondary" download>
+                            Download Starter
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                style="margin-left: 8px; vertical-align: middle;">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="7 10 12 15 17 10"></polyline>
+                                <line x1="12" y1="15" x2="12" y2="3"></line>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="task-overview fade-up">
+                    <h3>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="16" x2="12" y2="12"></line>
+                            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                        </svg>
+                        Technical Requirements
+                    </h3>
+                    <div class="metric-grid" id="task-metrics">
+                        <!-- Metrics -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section" style="padding-top: 4rem; padding-bottom: 2rem;">
+            <div class="container">
+                <div class="highlights-grid fade-up" id="task-highlights"
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 4rem;">
+                    <!-- Highlights -->
+                </div>
+
+                <div class="section-title fade-up">Solution <span class="highlight">Implementation</span></div>
+
+                <div id="notebook-mount" class="notebook-wrapper">
+                    <div class="loader-wrapper-local"
+                        style="text-align: center; padding: 8rem 0; background: rgba(255,255,255,0.02); border-radius: 20px; border: 1px dashed var(--border);">
+                        <div class="loader"
+                            style="margin: 0 auto 1.5rem; width: 40px; height: 40px; border-width: 3px; border-top-color: var(--accent);">
+                        </div>
+                        <p
+                            style="color: var(--primary); font-family: var(--font-heading); font-weight: 500; font-size: 1.1rem;">
+                            Architecting Technical Overview...</p>
+                        <p style="margin-top: 0.5rem; color: var(--text-dim); font-size: 0.9rem;">Processing Jupyter
+                            Notebook structure</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="container fade-up" id="back-link-container"
+            style="margin-top: 4rem; margin-bottom: 6rem; text-align: center;">
+            <!-- Dynamic back link -->
+        </div>
+    </main>
+
+    <div id="error-content" class="container" style="display: none; padding: 200px 0; text-align: center;">
+        <h1 class="highlight">Task Not Found</h1>
+        <p>The requested task could not be found in the archive.</p>
+        <a href="./" class="btn btn-primary" style="margin-top: 2rem;">Back to Archive</a>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+    <script src="../main.js"></script>
+    <script src="../js/notebook-renderer.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const params = new URLSearchParams(window.location.search);
+            const year = params.get('year');
+            const country = params.get('country');
+            const taskId = params.get('task');
+
+            if (!year || !country || !taskId) {
+                document.getElementById('error-content').style.display = 'block';
+                return;
+            }
+
+            try {
+                const response = await fetch('./tasks.json');
+                const data = await response.json();
+
+                const task = data[year]?.[country]?.[taskId];
+
+                if (!task) {
+                    document.getElementById('error-content').style.display = 'block';
+                    return;
+                }
+
+                // Fill data
+                document.title = `${task.title} | IOAI Solution`;
+                document.getElementById('task-title').innerHTML = task.title.replace(/(\w+)$/, '<span class="highlight">$1</span>');
+                document.getElementById('task-subtitle').textContent = task.subtitle;
+
+                // Breadcrumbs
+                const breadcrumbs = document.getElementById('breadcrumb-list');
+                breadcrumbs.innerHTML = `
+                    <a href="./">IOAI Archive</a>
+                    <span>/</span>
+                    <a href="./${year}/">${year}</a>
+                    <span>/</span>
+                    <a href="./${year}/${country}/">${country.charAt(0).toUpperCase() + country.slice(1)}</a>
+                    <span>/</span>
+                    <span class="current">${task.title}</span>
+                `;
+
+                // Chips
+                const chipsContainer = document.getElementById('task-chips');
+                task.chips.forEach(chip => {
+                    const div = document.createElement('div');
+                    div.className = 'chip';
+                    div.textContent = chip;
+                    chipsContainer.appendChild(div);
+                });
+
+                // Metrics
+                const metricsContainer = document.getElementById('task-metrics');
+                task.requirements.forEach(req => {
+                    const div = document.createElement('div');
+                    div.className = 'metric-item';
+                    div.innerHTML = `
+                        <span class="metric-label">${req.label}</span>
+                        <span class="metric-value">${req.value}</span>
+                    `;
+                    metricsContainer.appendChild(div);
+                });
+
+                // Highlights
+                const highlightsContainer = document.getElementById('task-highlights');
+                task.highlights.forEach(h => {
+                    const div = document.createElement('div');
+                    div.className = 'highlight-item';
+                    div.style.cssText = 'background: var(--bg-card); border: 1px solid var(--border); padding: 2.5rem; border-radius: 20px;';
+                    div.innerHTML = `
+                        <span style="color: var(--accent); font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">${h.step}</span>
+                        <h3 style="margin: 1rem 0; font-family: var(--font-heading);">${h.title}</h3>
+                        <p style="color: var(--text-dim); font-size: 0.95rem;">${h.description}</p>
+                    `;
+                    highlightsContainer.appendChild(div);
+                });
+
+                // Back link
+                const backLinkContainer = document.getElementById('back-link-container');
+                backLinkContainer.innerHTML = `<a href="./${year}/${country}/" class="btn btn-secondary" style="margin: 0;">Back to ${country.charAt(0).toUpperCase() + country.slice(1)} Tasks</a>`;
+
+                document.getElementById('main-content').style.display = 'block';
+
+                // Load notebook
+                const notebookPath = `./${year}/${country}/${task.notebookPath}`;
+                const mountPoint = document.getElementById('notebook-mount');
+
+                // Set download links
+                const solvedBtn = document.getElementById('download-solved');
+                const rawBtn = document.getElementById('download-raw');
+
+                solvedBtn.href = notebookPath;
+                solvedBtn.download = `${taskId}_solution.ipynb`;
+
+                rawBtn.href = `./${year}/${country}/${task.starterPath || '#'}`;
+                rawBtn.download = `${taskId}_starter.ipynb`;
+
+                const renderer = new NotebookRenderer({
+                    marked: window.marked,
+                    hljs: window.hljs
+                });
+
+                renderer.loadAndRender(notebookPath, mountPoint);
+
+            } catch (err) {
+                console.error(err);
+                document.getElementById('error-content').style.display = 'block';
+            }
+        });
+    </script>
+</body>
+
+</html>

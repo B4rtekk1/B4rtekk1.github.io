@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Country | IOAI 2025</title>
+    <meta name="description" content="Select the country for IOAI 2025 solutions.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="../../style.css">
+    <style>
+        /* Specific page adjustments */
+        .selection-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .country-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: left;
+            text-decoration: none;
+            transition: var(--transition-slow);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .country-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, transparent 100%);
+            z-index: 1;
+        }
+
+        .country-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            background: rgba(40, 40, 40, 0.4);
+        }
+
+        .country-flag {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: all var(--transition-slow);
+        }
+
+        .country-card:hover .country-flag {
+            transform: scale(1.1) rotate(5deg);
+            border-color: var(--accent);
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        .country-card:hover .country-name {
+            color: var(--accent);
+        }
+
+        .country-name {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary);
+            z-index: 2;
+        }
+
+        .breadcrumbs {
+            margin-bottom: 2rem;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        .breadcrumbs a {
+            color: var(--text-dim);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .breadcrumbs a:hover {
+            color: var(--accent);
+        }
+
+        .breadcrumbs span {
+            margin: 0 0.5rem;
+            opacity: 0.5;
+        }
+
+        .breadcrumbs .current {
+            color: var(--primary);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cursor-glow"></div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../../index.html" class="logo">BK<span>.</span></a>
+            <ul class="nav-links">
+                <li><a href="../../index.html#ioai" class="nav-item">Back to Home</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero" style="min-height: 80vh; align-items: flex-start;">
+            <div class="container">
+                <div class="breadcrumbs fade-up">
+                    <a href="../">IOAI Archive</a>
+                    <span>/</span>
+                    <span class="current">2025</span>
+                </div>
+
+                <div class="status-badge fade-up">
+                    <span class="status-dot"></span>
+                    2025 Season
+                </div>
+                <h1 class="reveal-text">Select <span class="highlight">Country</span></h1>
+                <p class="hero-subtitle fade-up">View solutions by country participation.</p>
+
+                <div class="selection-grid fade-up">
+                    <a href="poland/" class="country-card magnetic" data-country="PL">
+                        <img src="https://flagcdn.com/pl.svg" class="country-flag" alt="Poland Flag">
+                        <span class="country-name">Poland</span>
+                    </a>
+                    <a href="bangladesh/" class="country-card magnetic" data-country="BD">
+                        <img src="https://flagcdn.com/bd.svg" class="country-flag" alt="Bangladesh Flag">
+                        <span class="country-name">Bangladesh</span>
+                    </a>
+                    <a href="benin/" class="country-card magnetic" data-country="BJ">
+                        <img src="https://flagcdn.com/bj.svg" class="country-flag" alt="Benin Flag">
+                        <span class="country-name">Benin</span>
+                    </a>
+                    <a href="china/" class="country-card magnetic" data-country="CN">
+                        <img src="https://flagcdn.com/cn.svg" class="country-flag" alt="China Flag">
+                        <span class="country-name">China</span>
+                    </a>
+                    <a href="georgia/" class="country-card magnetic" data-country="GE">
+                        <img src="https://flagcdn.com/ge.svg" class="country-flag" alt="Georgia Flag">
+                        <span class="country-name">Georgia</span>
+                    </a>
+                    <a href="india/" class="country-card magnetic" data-country="IN">
+                        <img src="https://flagcdn.com/in.svg" class="country-flag" alt="India Flag">
+                        <span class="country-name">India</span>
+                    </a>
+                    <a href="japan/" class="country-card magnetic" data-country="JP">
+                        <img src="https://flagcdn.com/jp.svg" class="country-flag" alt="Japan Flag">
+                        <span class="country-name">Japan</span>
+                    </a>
+                    <a href="malaysia/" class="country-card magnetic" data-country="MY">
+                        <img src="https://flagcdn.com/my.svg" class="country-flag" alt="Malaysia Flag">
+                        <span class="country-name">Malaysia</span>
+                    </a>
+                    <a href="serbia/" class="country-card magnetic" data-country="RS">
+                        <img src="https://flagcdn.com/rs.svg" class="country-flag" alt="Serbia Flag">
+                        <span class="country-name">Serbia</span>
+                    </a>
+                    <a href="tunisia/" class="country-card magnetic" data-country="TN">
+                        <img src="https://flagcdn.com/tn.svg" class="country-flag" alt="Tunisia Flag">
+                        <span class="country-name">Tunisia</span>
+                    </a>
+                    <!-- Add more countries as needed -->
+                    <a href="#" class="country-card magnetic" style="opacity: 0.5; pointer-events: none;"
+                        data-country="US">
+                        <img src="https://flagcdn.com/us.svg" class="country-flag" alt="USA Flag">
+                        <span class="country-name">USA (Coming Soon)</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="../../main.js"></script>
+</body>
+
+</html>
