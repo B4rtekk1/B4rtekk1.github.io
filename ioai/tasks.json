@@ -29,6 +29,12 @@
                         "value": "3,957"
                     }
                 ],
+                "results": {
+                    "runningTime": "6s",
+                    "score": "100 pts",
+                    "metricName": "ROC AUC",
+                    "metricScore": "0.8977"
+                },
                 "highlights": [
                     {
                         "step": "Step 01",
@@ -46,8 +52,8 @@
                         "description": "Ensuring sub-5 minute execution on CPU through efficient data pre-processing and model hyper-tuning."
                     }
                 ],
-                "notebookPath": "./2_wykrywanie_halucynacji_solved.ipynb",
-                "starterPath": "./2_wykrywanie_halucynacji_raw.ipynb"
+                "notebookPath": "./hallucinations_detection_solved.ipynb",
+                "starterPath": "./hallucinations_detection_raw.ipynb"
             },
             "coin-counting": {
                 "title": "Coin Counting Machine",
@@ -77,6 +83,12 @@
                         "value": "1,200"
                     }
                 ],
+                "results": {
+                    "runningTime": "45s",
+                    "score": "100 pts",
+                    "metricName": "Accuracy",
+                    "metricScore": "98.2%"
+                },
                 "highlights": [
                     {
                         "step": "Step 01",
@@ -125,6 +137,12 @@
                         "value": "12-lead"
                     }
                 ],
+                "results": {
+                    "runningTime": "2m 15s",
+                    "score": "92 pts",
+                    "metricName": "F1 Score",
+                    "metricScore": "0.91"
+                },
                 "highlights": [
                     {
                         "step": "Step 01",
@@ -173,6 +191,12 @@
                         "value": "Binary"
                     }
                 ],
+                "results": {
+                    "runningTime": "1m 8s",
+                    "score": "100 pts",
+                    "metricName": "BAC",
+                    "metricScore": "0.8266"
+                },
                 "highlights": [
                     {
                         "step": "Step 01",
@@ -190,56 +214,66 @@
                         "description": "Selecting training samples with the lowest losses from the peer model to avoid fitting to noise."
                     }
                 ],
-                "notebookPath": "./4_noise_in_data_labels_solved.ipynb",
-                "starterPath": "./4_szum_w_etykietach_danych.ipynb"
+                "notebookPath": "./noise_in_data_labels_solved.ipynb",
+                "starterPath": "./noise_in_data_labels_raw.ipynb"
             },
             "hidden-substrings": {
-                "title": "Hidden Substrings Detection",
-                "subtitle": "Discovering latent patterns and sequences within vast textual datasets.",
-                "category": "NLP",
+                "title": "Hidden Subsequences",
+                "subtitle": "Learning to approximate a weighted sum function φ(S) that scores binary strings based on hidden pattern subsequences, without knowing the underlying pattern dictionary or their weights.",
+                "category": "ML",
                 "chips": [
-                    "NLP",
-                    "Regex Optimization",
-                    "Pattern Extraction",
-                    "Information Retrieval"
+                    "Deep Learning",
+                    "LSTM",
+                    "Sequence Modeling",
+                    "Regression"
                 ],
                 "requirements": [
                     {
-                        "label": "Search Speed",
-                        "value": "10GB/min"
+                        "label": "Model params",
+                        "value": "< 50000"
                     },
                     {
-                        "label": "Pattern Accuracy",
-                        "value": "100%"
+                        "label": "Iterations",
+                        "value": "< 4000"
+                    },
+                    {
+                        "label": "Execution time (GPU)",
+                        "value": "< 4 min"
+                    },
+                    {
+                        "label": "Target MSE",
+                        "value": "< 64"
                     },
                     {
                         "label": "Max Score",
                         "value": "100 pts"
-                    },
-                    {
-                        "label": "Scale",
-                        "value": "Large Corpus"
                     }
                 ],
+                "results": {
+                    "runningTime": "32s",
+                    "score": "100 pts",
+                    "metricName": "MSE",
+                    "metricScore": "0.12"
+                },
                 "highlights": [
                     {
                         "step": "Step 01",
-                        "title": "Indexing",
-                        "description": "Building an optimized suffix tree for fast substring lookup."
+                        "title": "Problem Formulation",
+                        "description": "Understanding subsequence matching: for each hidden pattern T with weight v, check if T ⊆ S and sum the weights. The goal is to learn φ(S) without knowing W."
                     },
                     {
                         "step": "Step 02",
-                        "title": "Pattern Matching",
-                        "description": "GPU-accelerated parallel search across multiple text shards."
+                        "title": "LSTM Architecture",
+                        "description": "Using a 3-layer LSTM with learned embeddings to capture sequential dependencies and subsequence patterns in binary strings."
                     },
                     {
                         "step": "Step 03",
-                        "title": "Summarization",
-                        "description": "Condensing found patterns into actionable insights using LLM."
+                        "title": "Parameter Optimization",
+                        "description": "Carefully tuning embedding dimension (21) and hidden size (45) to stay under 50K parameters while maximizing model capacity."
                     }
                 ],
-                "notebookPath": "./substring_search.ipynb",
-                "starterPath": "./substring_search_starter.ipynb"
+                "notebookPath": "./hidden_substrings_solved.ipynb",
+                "starterPath": "./hidden_substrings_starter.ipynb"
             }
         }
     }

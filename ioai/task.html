@@ -152,6 +152,54 @@
                 padding-bottom: 60px !important;
             }
         }
+
+        /* Solution Results Banner */
+        .solution-results {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin: 2rem 0 3rem;
+            padding: 1.5rem 2rem;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 16px;
+            flex-wrap: wrap;
+        }
+
+        .result-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .result-label {
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .result-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            font-family: var(--font-heading);
+            background: linear-gradient(135deg, var(--accent) 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        @media (max-width: 600px) {
+            .solution-results {
+                gap: 1.5rem;
+                padding: 1rem 1.5rem;
+            }
+
+            .result-value {
+                font-size: 1.2rem;
+            }
+        }
     </style>
 
 </head>
@@ -237,6 +285,10 @@
                 </div>
 
                 <div class="section-title fade-up">Solution <span class="highlight">Implementation</span></div>
+
+                <div class="solution-results fade-up" id="solution-results">
+                    <!-- Results will be populated dynamically -->
+                </div>
 
                 <div id="notebook-mount" class="notebook-wrapper">
                     <div class="loader-wrapper-local"
@@ -346,6 +398,25 @@
                     `;
                     highlightsContainer.appendChild(div);
                 });
+
+                // Solution Results
+                if (task.results) {
+                    const resultsContainer = document.getElementById('solution-results');
+                    resultsContainer.innerHTML = `
+                        <div class="result-item">
+                            <span class="result-label">Running Time</span>
+                            <span class="result-value">${task.results.runningTime}</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Score</span>
+                            <span class="result-value">${task.results.score}</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">${task.results.metricName || 'Metric Score'}</span>
+                            <span class="result-value">${task.results.metricScore}</span>
+                        </div>
+                    `;
+                }
 
                 // Back link
                 const backLinkContainer = document.getElementById('back-link-container');
